@@ -1,0 +1,10 @@
+.controlPanel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controlButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
