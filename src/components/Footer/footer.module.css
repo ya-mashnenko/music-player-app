@@ -1,0 +1,18 @@
+footer {
+  height: 130px;
+  display: flex;
+  width: 540px;
+}
+
+.nextSong {
+  display: grid;
+  align-content: center;
+}
+
+.nextSong span {
+  margin: 0 10px;
+}
+
+.nextSong li {
+  margin: -10px 0;
+}
