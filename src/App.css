@@ -13,3 +13,23 @@
 .title {
   font-size: 24px;
 }
+
+.songInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  line-height: 64px;
+  list-style-position: inside;
+}
+
+.songInfoDots {
+  flex: 1;
+  overflow: hidden;
+  letter-spacing: 5px;
+}
+
+.iconButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
