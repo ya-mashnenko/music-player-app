@@ -1,0 +1,30 @@
+.trackList {
+  background-color: white;
+  padding: 20px;
+  counter-reset: section;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  line-height: 64px;
+  list-style-position: inside;
+}
+
+.listItem::before {
+  color: #9a9b9b;
+  font-size: 18px;
+  counter-increment: section;
+  content: counter(section) ".";
+}
+
+.listItem span {
+  margin: 0 10px;
+}
+
+.listItemDots {
+  flex: 1;
+  overflow: hidden;
+  letter-spacing: 5px;
+}
