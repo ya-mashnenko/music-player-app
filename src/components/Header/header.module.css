@@ -3,6 +3,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 40px;
 }
 
 .controlButton {
@@ -18,7 +19,6 @@ header {
 
 .headerTitlePlaylist {
   display: grid;
-  text-align: right;
 }
 
 .headerTitlePlaylist span:first-child {

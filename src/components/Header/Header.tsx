@@ -1,8 +1,9 @@
+import { ISongDataProps } from "../Player/Player";
 import styles from "./header.module.css";
 
 export interface IHeaderProps {
   page: "main" | "view more" | "playlist";
-  musicData: { album: string; artist: string; song: string };
+  musicData: ISongDataProps;
 }
 
 export const Header: React.FC<IHeaderProps> = ({ page, musicData }) => {
