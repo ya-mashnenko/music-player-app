@@ -1,3 +1,8 @@
 .listItem span {
   margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+.duration {
+  color: #9a9b9b;
 }

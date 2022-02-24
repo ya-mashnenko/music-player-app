@@ -1,4 +1,5 @@
 .timerBar {
+  width: 100%;
   padding: 0 40px;
   color: #9a9b9b;
   display: flex;

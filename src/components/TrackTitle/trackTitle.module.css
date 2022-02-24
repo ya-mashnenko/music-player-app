@@ -1,0 +1,15 @@
+.trackTitle {
+  display: grid;
+}
+
+.mainStyle {
+  text-align: center;
+}
+
+.mainStyle span:first-child {
+  font-size: 36px;
+}
+
+.trackTitle span:first-child {
+  color: #0fd65a;
+}
