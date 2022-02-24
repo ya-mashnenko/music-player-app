@@ -1,0 +1,19 @@
+.timerBar {
+  padding: 0 40px;
+  color: #9a9b9b;
+  display: flex;
+  align-items: center;
+}
+
+.barOuter {
+  margin: 0 30px;
+  height: 1px;
+  background-color: #000000;
+  width: 100%;
+}
+
+.barInner {
+  width: 30%;
+  height: 5px;
+  background-color: #2a2a2a;
+}
