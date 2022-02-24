@@ -1,0 +1,35 @@
+.viewMorePage {
+  min-width: 320px;
+  max-width: 580px;
+  background-color: #1b1b1b;
+  max-height: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonLink {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 20px;
+  border-style: none;
+  font-size: 24px;
+  background-color: transparent;
+  color: white;
+}
+
+.divider {
+  transform: rotate(90deg);
+}
+.divider svg {
+  color: white;
+}
+
+.cover {
+  width: 180px;
+}

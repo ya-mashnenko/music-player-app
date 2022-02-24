@@ -5,4 +5,5 @@
   max-height: 1024px;
   display: flex;
   flex-direction: column;
+  align-content: center;
 }
