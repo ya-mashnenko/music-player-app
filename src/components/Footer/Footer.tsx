@@ -1,7 +1,8 @@
-import { ITrackProps, TrackInfo } from "../TrackInfo/TrackInfo";
+import { TrackInfo } from "../TrackInfo/TrackInfo";
 import styles from "./footer.module.css";
+import { TrackProps } from "../../types";
 
-export const Footer: React.FC<ITrackProps> = ({ track }) => {
+export const Footer: React.FC<TrackProps> = ({ track }) => {
   return (
     <footer>
       <button className="iconButton">

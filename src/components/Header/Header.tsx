@@ -1,30 +1,32 @@
-import { ISongDataProps } from "../Player/Player";
+import { TrackTitle } from "../TrackTitle/TrackTitle";
 import styles from "./header.module.css";
+import { SongDataProps } from "../../types";
 
 export interface IHeaderProps {
   page: "main" | "view more" | "playlist";
-  musicData: ISongDataProps;
+  musicData?: SongDataProps;
 }
 
 export const Header: React.FC<IHeaderProps> = ({ page, musicData }) => {
   const headerTitle = (pageName: IHeaderProps["page"]) => {
     switch (pageName) {
+      case "view more":
+        return;
       case "main":
         return (
           <div className={styles.headerTitleMain}>
             <span className="subtitle">Album</span>
-            <span className="title">{musicData.album}</span>
+            <span className="title">{musicData?.album}</span>
           </div>
         );
       case "playlist":
         return (
-          <div className={styles.headerTitlePlaylist}>
-            <span className="title">{musicData.song}</span>
-            <span className="subtitle">{musicData.artist}</span>
-          </div>
+          <TrackTitle
+            song={musicData?.song || "unknown song"}
+            artist={musicData?.artist || "unknown artist"}
+            variant="header"
+          />
         );
-      case "view more":
-        return;
     }
   };
 
@@ -33,7 +35,7 @@ export const Header: React.FC<IHeaderProps> = ({ page, musicData }) => {
       <button className={styles.controlButton}>
         <img src="back_ico.svg" alt="back" width={16} />
       </button>
-      {headerTitle(page)}
+      {musicData && headerTitle(page)}
       <button className={styles.controlButton}>
         <img src="more_ico.svg" alt="more" />
       </button>

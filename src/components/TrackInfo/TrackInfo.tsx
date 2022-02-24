@@ -1,17 +1,14 @@
 import styles from "./trackInfo.module.css";
+import { TrackProps } from "../../types";
 
-export interface ITrackProps {
-  track: { name: string; duration: string };
-}
-
-export const TrackInfo: React.FC<ITrackProps> = ({ track }) => {
+export const TrackInfo: React.FC<TrackProps> = ({ track }) => {
   return (
     <li className={`${styles.listItem} songInfo`}>
-      <span>{track.name}</span>
+      <span>{track.song}</span>
       <span className="songInfoDots">
         ................................................
       </span>
-      <span>{track.duration}</span>
+      <span className={styles.duration}>{track.duration}</span>
     </li>
   );
 };

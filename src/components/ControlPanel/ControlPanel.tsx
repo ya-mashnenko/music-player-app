@@ -9,8 +9,8 @@ export const ControlPanel = () => {
       <button className={styles.controlButton}>
         <img src="previous_ico.svg" alt="previous" />
       </button>
-      <button className={styles.controlButton}>
-        <img src="Play_active.png" alt="play" />
+      <button className={styles.controlButton} style={{ width: "250px" }}>
+        <img src="Play_active.png" alt="play" width="100%" />
       </button>
       <button className={styles.controlButton}>
         <img src="next_ico.svg" alt="next" />
