@@ -1,24 +1,40 @@
 .App {
   display: flex;
   justify-content: center;
+  font-size: 1rem;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+main {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrapper {
+  width: 500px;
+  height: 800px;
+  position: relative;
 }
 
 .subtitle {
   text-transform: uppercase;
   color: #9a9b9b;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 1.2rem;
+  color: white;
 }
 
 .songInfo {
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
-  line-height: 64px;
+  font-size: 1rem;
   list-style-position: inside;
 }
 
@@ -26,6 +42,7 @@
   flex: 1;
   overflow: hidden;
   letter-spacing: 5px;
+  color: #9a9b9b;
 }
 
 .iconButton {

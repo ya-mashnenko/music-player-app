@@ -1,22 +1,20 @@
-import { useState } from "react";
-import { Footer } from "../Footer/Footer";
-import { Header, IHeaderProps } from "../Header/Header";
-import { SongDataProps, TrackListProps } from "../../types";
+import { TrackProps } from "../../types";
+import { DiscSlider } from "../DiscSlider/DiscSlider";
+import { TrackTitle } from "../TrackTitle/TrackTitle";
+import { ControlPanel } from "../ControlPanel/ControlPanel";
+import { TimerBar } from "../TimerBar/TimerBar";
 
-export const Player: React.FC<TrackListProps> = ({ trackList }) => {
-  const [currentPage, setCurrentPage] =
-    useState<IHeaderProps["page"]>("playlist");
-  const [currentSong, setCurrentSong] = useState<SongDataProps>(trackList[0]);
-  const nextSong = (currentSong: SongDataProps, trackList: SongDataProps[]) => {
-    const songIndex = trackList.findIndex(
-      (track) => JSON.stringify(track) === JSON.stringify(currentSong)
-    );
-    return trackList[songIndex + 1];
-  };
+export const Player: React.FC<TrackProps> = ({ track: currentSong }) => {
   return (
-    <>
-      <Header page={currentPage} musicData={currentSong} />
-      <Footer track={nextSong(currentSong, trackList)} />
-    </>
+    <main>
+      <DiscSlider />
+      <TrackTitle
+        song={currentSong.song}
+        artist={currentSong.artist}
+        variant="main"
+      />
+      <ControlPanel />
+      <TimerBar duration={currentSong.duration} />
+    </main>
   );
 };

@@ -2,6 +2,7 @@
   background-color: white;
   padding: 0 40px;
   counter-reset: section;
+  overflow: auto;
 }
 
 .trackList li::before {
@@ -9,4 +10,8 @@
   font-size: 18px;
   counter-increment: section;
   content: counter(section) ".";
+}
+
+.trackList li {
+  margin: 20px 0;
 }

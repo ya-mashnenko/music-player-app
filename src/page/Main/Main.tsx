@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { ControlPanel } from "../../components/ControlPanel/ControlPanel";
-import { DiscSlider } from "../../components/DiscSlider/DiscSlider";
 import { Footer } from "../../components/Footer/Footer";
-import { Header, IHeaderProps } from "../../components/Header/Header";
-import { TimerBar } from "../../components/TimerBar/TimerBar";
-import { TrackTitle } from "../../components/TrackTitle/TrackTitle";
+import { Header } from "../../components/Header/Header";
 import styles from "./main.module.css";
-import { SongDataProps, TrackListProps } from "../../types";
+import { PageStateProps, SongDataProps, TrackListProps } from "../../types";
+import { MenuPage } from "../ViewMore/ViewMore";
+import { PlaylistFooter } from "../../components/PlaylistFooter/PlaylistFooter";
+import { PlaylistHeader } from "../../components/PlaylistHeader/PlaylistHeader";
+import { Player } from "../../components/Player/Player";
+import { TracksList } from "../../components/TracksList/TracksList";
 
 export const MainPage: React.FC<TrackListProps> = ({ trackList }) => {
-  const [currentPage, setCurrentPage] = useState<IHeaderProps["page"]>("main");
+  const [currentPage, setCurrentPage] = useState<PageStateProps>(
+    PageStateProps.main
+  );
   const [currentSong, setCurrentSong] = useState<SongDataProps>(trackList[0]);
 
   const nextSong = (currentSong: SongDataProps, trackList: SongDataProps[]) => {
@@ -18,20 +21,38 @@ export const MainPage: React.FC<TrackListProps> = ({ trackList }) => {
     );
     return trackList[songIndex + 1];
   };
+
+  const renderMain = (currentPage: PageStateProps) => {
+    switch (currentPage) {
+      case PageStateProps.main:
+        return <Player track={currentSong} />;
+      case PageStateProps.menu:
+        return <MenuPage track={currentSong} />;
+      case PageStateProps.playlist:
+        return <TracksList trackList={trackList} />;
+    }
+  };
+
   return (
     <div className={styles.mainPage}>
-      <Header page={currentPage} musicData={currentSong} />
-      <main>
-        <DiscSlider />
-        <TrackTitle
-          song={currentSong.song}
-          artist={currentSong.artist}
-          variant="main"
+      {currentPage === PageStateProps.playlist ? (
+        <PlaylistHeader track={currentSong} handleMainOpen={setCurrentPage} />
+      ) : (
+        <Header
+          currentPage={currentPage}
+          musicData={currentSong}
+          handleMenuOpen={setCurrentPage}
         />
-        <ControlPanel />
-        <TimerBar duration={currentSong.duration} />
-      </main>
-      <Footer track={nextSong(currentSong, trackList)} />
+      )}
+      {renderMain(currentPage)}
+      {currentPage === PageStateProps.playlist ? (
+        <PlaylistFooter />
+      ) : (
+        <Footer
+          track={nextSong(currentSong, trackList)}
+          handlePlaylistOpen={setCurrentPage}
+        />
+      )}
     </div>
   );
 };

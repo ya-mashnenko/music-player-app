@@ -1,8 +1,9 @@
 .mainPage {
-  min-width: 320px;
-  max-width: 580px;
+  width: 100%;
+  min-width: 350px;
+  max-width: 600px;
   background-color: #1b1b1b;
-  max-height: 1024px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;

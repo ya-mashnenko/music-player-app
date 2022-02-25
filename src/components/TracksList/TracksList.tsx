@@ -1,6 +1,6 @@
 import { TrackInfo } from "../TrackInfo/TrackInfo";
 import styles from "./trackList.module.css";
-import { SongDataProps, TrackListProps } from "../../types";
+import { TrackListProps } from "../../types";
 
 export const TracksList: React.FC<TrackListProps> = ({ trackList }) => {
   return (

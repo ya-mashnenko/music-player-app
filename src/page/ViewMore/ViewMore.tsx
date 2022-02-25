@@ -1,13 +1,10 @@
-import { Header } from "../../components/Header/Header";
 import { TrackTitle } from "../../components/TrackTitle/TrackTitle";
 import styles from "./viewMore.module.css";
 import { TrackProps } from "../../types";
-import { Footer } from "../../components/Footer/Footer";
 
-export const ViewMorePage: React.FC<TrackProps> = ({ track: currentSong }) => {
+export const MenuPage: React.FC<TrackProps> = ({ track: currentSong }) => {
   return (
     <div className={styles.viewMorePage}>
-      <Header page={"view more"} />
       <main>
         <div className={styles.cover}>
           <img src={currentSong.cover} alt="cover" width={"180px"} />
@@ -24,7 +21,6 @@ export const ViewMorePage: React.FC<TrackProps> = ({ track: currentSong }) => {
           <button className={styles.buttonLink}>Share with friends</button>
         </div>
       </main>
-      <Footer track={currentSong} />
     </div>
   );
 };

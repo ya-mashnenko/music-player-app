@@ -13,3 +13,9 @@ export interface TrackListProps {
 export interface TrackProps {
   track: SongDataProps;
 }
+
+export enum PageStateProps {
+  main = "MAIN",
+  playlist = "PLALIST",
+  menu = "MENU",
+}
