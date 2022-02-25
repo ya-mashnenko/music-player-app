@@ -1,0 +1,21 @@
+header {
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: url("../../../public/bg_image.jpg"),
+    linear-gradient(#1b1b1b, #1b1b1b);
+  background-blend-mode: overlay;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.controlButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 40px;
+}
