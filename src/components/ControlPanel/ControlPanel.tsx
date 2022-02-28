@@ -1,25 +1,33 @@
 import { useState } from "react";
-import { nextSong, previousSong, shuffleSongs } from "../../helpers";
-import { SongDataProps, TrackListProps } from "../../types";
+import { nextSong, previousSong } from "../../helpers";
+import { SongDataProps } from "../../types";
 import styles from "./controlPanel.module.css";
 
 interface IControlPanelProps {
   trackList: SongDataProps[];
   currentSong: SongDataProps;
   handleSongChange: (song: SongDataProps) => void;
+  handleShufflePlaylist: (value: boolean) => void;
+  isShuffledPlaylist: boolean;
+  handleRepeat: (value: boolean) => void;
+  isRepeatedSong: boolean;
 }
 
 export const ControlPanel: React.FC<IControlPanelProps> = ({
   trackList,
   currentSong,
   handleSongChange,
+  handleShufflePlaylist,
+  isShuffledPlaylist,
+  handleRepeat,
+  isRepeatedSong,
 }) => {
   const [isPlayActive, setIsPlayActive] = useState<boolean>(false);
   return (
     <div className={styles.controlPanel}>
       <button
         className={styles.controlButton}
-        onClick={() => shuffleSongs(trackList)}
+        onClick={() => handleShufflePlaylist(!isShuffledPlaylist)}
       >
         <img src="shuffle_ico.svg" alt="shuffle" />
       </button>
@@ -48,7 +56,10 @@ export const ControlPanel: React.FC<IControlPanelProps> = ({
       >
         <img src="next_ico.svg" alt="next" />
       </button>
-      <button className={styles.controlButton}>
+      <button
+        className={styles.controlButton}
+        onClick={() => handleRepeat(!isRepeatedSong)}
+      >
         <img src="repeat_ico.svg" alt="repeat" />
       </button>
     </div>

@@ -31,5 +31,6 @@ export const previousSong = (
 };
 
 export const shuffleSongs = (trackList: SongDataProps[]) => {
-  return trackList.sort(() => Math.random() - 0.5);
+  const arrayToSort = [...trackList];
+  return arrayToSort.sort(() => Math.random() - 0.5);
 };

@@ -9,12 +9,20 @@ interface IPlayerProps {
   trackList: SongDataProps[];
   currentSong: SongDataProps;
   handleSongChange: (song: SongDataProps) => void;
+  handleShufflePlaylist: (value: boolean) => void;
+  isShuffledPlaylist: boolean;
+  handleRepeat: (value: boolean) => void;
+  isRepeatedSong: boolean;
 }
 
 export const Player: React.FC<IPlayerProps> = ({
   currentSong,
   trackList,
   handleSongChange,
+  handleShufflePlaylist,
+  isShuffledPlaylist,
+  handleRepeat,
+  isRepeatedSong,
 }) => {
   return (
     <div className={styles.player}>
@@ -28,6 +36,10 @@ export const Player: React.FC<IPlayerProps> = ({
         currentSong={currentSong}
         handleSongChange={handleSongChange}
         trackList={trackList}
+        handleShufflePlaylist={handleShufflePlaylist}
+        isShuffledPlaylist={isShuffledPlaylist}
+        handleRepeat={handleRepeat}
+        isRepeatedSong={isRepeatedSong}
       />
       <TimerBar duration={currentSong.duration} />
     </div>

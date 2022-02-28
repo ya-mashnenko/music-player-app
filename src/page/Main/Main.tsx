@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import styles from "./main.module.css";
@@ -12,6 +11,10 @@ interface IMainPageProps {
   handlePageChange: (page: PageStateProps) => void;
   currentSong: SongDataProps;
   handleSongChange: (song: SongDataProps) => void;
+  handleShufflePlaylist: (value: boolean) => void;
+  isShuffledPlaylist: boolean;
+  handleRepeat: (value: boolean) => void;
+  isRepeatedSong: boolean;
 }
 
 export const MainPage: React.FC<IMainPageProps> = ({
@@ -19,6 +22,10 @@ export const MainPage: React.FC<IMainPageProps> = ({
   handlePageChange,
   currentSong,
   handleSongChange,
+  handleShufflePlaylist,
+  isShuffledPlaylist,
+  handleRepeat,
+  isRepeatedSong,
 }) => {
   return (
     <div className={styles.mainPage}>
@@ -33,6 +40,10 @@ export const MainPage: React.FC<IMainPageProps> = ({
             currentSong={currentSong}
             handleSongChange={handleSongChange}
             trackList={trackList}
+            handleShufflePlaylist={handleShufflePlaylist}
+            isShuffledPlaylist={isShuffledPlaylist}
+            handleRepeat={handleRepeat}
+            isRepeatedSong={isRepeatedSong}
           />
         </main>
         <Footer

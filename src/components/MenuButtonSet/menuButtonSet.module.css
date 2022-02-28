@@ -11,4 +11,9 @@
   font-size: 24px;
   background-color: transparent;
   color: white;
+  cursor: pointer;
+}
+
+.buttonLink:hover {
+  color: rgb(168, 168, 168);
 }

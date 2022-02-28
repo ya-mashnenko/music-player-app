@@ -2,7 +2,6 @@ import { TrackTitle } from "../../components/TrackTitle/TrackTitle";
 import styles from "./menu.module.css";
 import { PageStateProps, SongDataProps } from "../../types";
 import { Header } from "../../components/Header/Header";
-import { useState } from "react";
 import { Footer } from "../../components/Footer/Footer";
 import { MenuButtonSet } from "../../components/MenuButtonSet/MenuButtonSet";
 
