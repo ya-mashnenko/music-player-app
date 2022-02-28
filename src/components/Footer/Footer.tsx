@@ -12,7 +12,7 @@ export const Footer: React.FC<IFooterProps> = ({
   handlePlaylistOpen,
 }) => {
   return (
-    <footer>
+    <footer className={styles.mainFooter}>
       <button
         className="iconButton"
         onClick={() => handlePlaylistOpen(PageStateProps.playlist)}
@@ -21,7 +21,9 @@ export const Footer: React.FC<IFooterProps> = ({
       </button>
       <div className={styles.nextSong}>
         <span className="subtitle">Next</span>
-        <TrackInfo track={track} />
+        <ul className={styles.trackWrapper}>
+          <TrackInfo track={track} />
+        </ul>
       </div>
     </footer>
   );

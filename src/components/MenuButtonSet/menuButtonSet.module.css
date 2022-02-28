@@ -1,0 +1,14 @@
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonLink {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 20px;
+  border-style: none;
+  font-size: 24px;
+  background-color: transparent;
+  color: white;
+}

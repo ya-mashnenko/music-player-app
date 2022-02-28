@@ -3,6 +3,7 @@
   padding: 0 40px;
   counter-reset: section;
   overflow: auto;
+  margin: 0;
 }
 
 .trackList li::before {

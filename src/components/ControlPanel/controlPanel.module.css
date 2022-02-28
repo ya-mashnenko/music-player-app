@@ -9,3 +9,11 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.inactibeButtonWrapper {
+  height: 260px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

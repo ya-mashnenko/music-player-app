@@ -14,7 +14,7 @@ export const Header: React.FC<IHeaderProps> = ({
 }) => {
   const isMenuOpen = currentPage === PageStateProps.menu;
   return (
-    <header>
+    <header className={styles.headerMain}>
       <div style={{ width: "35px" }}>
         {isMenuOpen && (
           <button

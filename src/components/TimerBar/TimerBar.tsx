@@ -6,12 +6,14 @@ interface ITimeBarProps {
 
 export const TimerBar: React.FC<ITimeBarProps> = ({ duration }) => {
   return (
-    <div className={styles.timerBar}>
-      <span>0:00</span>
-      <div className={styles.barOuter}>
-        <div className={styles.barInner} />
+    <div style={{ width: "100%" }}>
+      <div className={styles.timerBar}>
+        <span>0:00</span>
+        <div className={styles.barOuter}>
+          <div className={styles.barInner} />
+        </div>
+        <span>{duration}</span>
       </div>
-      <span>{duration}</span>
     </div>
   );
 };

@@ -12,7 +12,7 @@ export const PlaylistHeader: React.FC<IPlaylistHeaderProps> = ({
   handleMainOpen,
 }) => {
   return (
-    <header>
+    <header className={styles.playlistHeader}>
       <div className={styles.wrapper}>
         <button
           className={styles.controlButton}

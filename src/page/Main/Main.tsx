@@ -2,57 +2,44 @@ import { useState } from "react";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import styles from "./main.module.css";
-import { PageStateProps, SongDataProps, TrackListProps } from "../../types";
-import { MenuPage } from "../ViewMore/ViewMore";
-import { PlaylistFooter } from "../../components/PlaylistFooter/PlaylistFooter";
-import { PlaylistHeader } from "../../components/PlaylistHeader/PlaylistHeader";
+import { PageStateProps, SongDataProps } from "../../types";
+
 import { Player } from "../../components/Player/Player";
-import { TracksList } from "../../components/TracksList/TracksList";
+import { nextSong } from "../../helpers";
 
-export const MainPage: React.FC<TrackListProps> = ({ trackList }) => {
-  const [currentPage, setCurrentPage] = useState<PageStateProps>(
-    PageStateProps.main
-  );
-  const [currentSong, setCurrentSong] = useState<SongDataProps>(trackList[0]);
+interface IMainPageProps {
+  trackList: SongDataProps[];
+  handlePageChange: (page: PageStateProps) => void;
+  currentSong: SongDataProps;
+  handleSongChange: (song: SongDataProps) => void;
+}
 
-  const nextSong = (currentSong: SongDataProps, trackList: SongDataProps[]) => {
-    const songIndex = trackList.findIndex(
-      (track) => JSON.stringify(track) === JSON.stringify(currentSong)
-    );
-    return trackList[songIndex + 1];
-  };
-
-  const renderMain = (currentPage: PageStateProps) => {
-    switch (currentPage) {
-      case PageStateProps.main:
-        return <Player track={currentSong} />;
-      case PageStateProps.menu:
-        return <MenuPage track={currentSong} />;
-      case PageStateProps.playlist:
-        return <TracksList trackList={trackList} />;
-    }
-  };
-
+export const MainPage: React.FC<IMainPageProps> = ({
+  trackList,
+  handlePageChange,
+  currentSong,
+  handleSongChange,
+}) => {
   return (
     <div className={styles.mainPage}>
-      {currentPage === PageStateProps.playlist ? (
-        <PlaylistHeader track={currentSong} handleMainOpen={setCurrentPage} />
-      ) : (
+      <div className={styles.gradientLayer}>
         <Header
-          currentPage={currentPage}
+          currentPage={PageStateProps.main}
           musicData={currentSong}
-          handleMenuOpen={setCurrentPage}
+          handleMenuOpen={handlePageChange}
         />
-      )}
-      {renderMain(currentPage)}
-      {currentPage === PageStateProps.playlist ? (
-        <PlaylistFooter />
-      ) : (
+        <main>
+          <Player
+            currentSong={currentSong}
+            handleSongChange={handleSongChange}
+            trackList={trackList}
+          />
+        </main>
         <Footer
           track={nextSong(currentSong, trackList)}
-          handlePlaylistOpen={setCurrentPage}
+          handlePlaylistOpen={handlePageChange}
         />
-      )}
+      </div>
     </div>
   );
 };
