@@ -1,23 +1,16 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import { Carousel } from "3d-react-carousal";
+import styles from "./discSlider.module.css";
+
+const slides = [
+  <img src="unreleased_cover.png" alt="cover" width="80%" />,
+  <img src="cover.png" alt="cover" width="80%" />,
+  <img src="cover-1.png" alt="cover" width="80%" />,
+];
 
 export const DiscSlider = () => {
   return (
-    <Carousel
-      showStatus={false}
-      showThumbs={false}
-      showIndicators={false}
-      width={"50%"}
-    >
-      <div>
-        <img src="unreleased_cover.png" alt="cover" />
-      </div>
-      <div>
-        <img src="cover.png" alt="cover" />
-      </div>
-      <div>
-        <img src="cover-1.png" alt="cover" />
-      </div>
-    </Carousel>
+    <div className={styles.carousel}>
+      <Carousel slides={slides} />
+    </div>
   );
 };
