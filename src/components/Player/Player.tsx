@@ -4,6 +4,7 @@ import { TrackTitle } from "../TrackTitle/TrackTitle";
 import { ControlPanel } from "../ControlPanel/ControlPanel";
 import { TimerBar } from "../TimerBar/TimerBar";
 import styles from "./player.module.css";
+import { useState } from "react";
 
 interface IPlayerProps {
   trackList: SongDataProps[];
@@ -24,6 +25,8 @@ export const Player: React.FC<IPlayerProps> = ({
   handleRepeat,
   isRepeatedSong,
 }) => {
+  const [isPlayActive, setIsPlayActive] = useState<boolean>(false);
+
   return (
     <div className={styles.player}>
       <DiscSlider />
@@ -40,8 +43,15 @@ export const Player: React.FC<IPlayerProps> = ({
         isShuffledPlaylist={isShuffledPlaylist}
         handleRepeat={handleRepeat}
         isRepeatedSong={isRepeatedSong}
+        isPlayActive={isPlayActive}
+        handlePlay={setIsPlayActive}
       />
-      <TimerBar duration={currentSong.duration} />
+      <TimerBar
+        isPlayActive={isPlayActive}
+        currentSong={currentSong}
+        handleSongChange={handleSongChange}
+        trackList={trackList}
+      />
     </div>
   );
 };

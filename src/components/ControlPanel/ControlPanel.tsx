@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { nextSong, previousSong } from "../../helpers";
 import { SongDataProps } from "../../types";
 import styles from "./controlPanel.module.css";
@@ -11,6 +10,8 @@ interface IControlPanelProps {
   isShuffledPlaylist: boolean;
   handleRepeat: (value: boolean) => void;
   isRepeatedSong: boolean;
+  isPlayActive: boolean;
+  handlePlay: (value: boolean) => void;
 }
 
 export const ControlPanel: React.FC<IControlPanelProps> = ({
@@ -21,8 +22,9 @@ export const ControlPanel: React.FC<IControlPanelProps> = ({
   isShuffledPlaylist,
   handleRepeat,
   isRepeatedSong,
+  isPlayActive,
+  handlePlay,
 }) => {
-  const [isPlayActive, setIsPlayActive] = useState<boolean>(false);
   return (
     <div className={styles.controlPanel}>
       <button
@@ -41,8 +43,7 @@ export const ControlPanel: React.FC<IControlPanelProps> = ({
       </button>
       <button
         className={styles.controlPlayButton}
-        style={{ width: "250px" }}
-        onClick={() => setIsPlayActive(!isPlayActive)}
+        onClick={() => handlePlay(!isPlayActive)}
       >
         {isPlayActive ? (
           <img src="Play_active.png" alt="play" width="250px" />

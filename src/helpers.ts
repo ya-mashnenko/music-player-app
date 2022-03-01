@@ -34,3 +34,7 @@ export const shuffleSongs = (trackList: SongDataProps[]) => {
   const arrayToSort = [...trackList];
   return arrayToSort.sort(() => Math.random() - 0.5);
 };
+
+export const songDurationInMinutes = (seconds: number) => {
+  return new Date(seconds * 1000).toISOString().substr(15, 4);
+};

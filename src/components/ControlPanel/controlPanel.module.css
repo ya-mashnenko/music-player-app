@@ -13,6 +13,7 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  width: 250px;
 }
 
 .controlButton :active {
