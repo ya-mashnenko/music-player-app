@@ -1,13 +1,28 @@
 .controlPanel {
   display: flex;
   justify-content: space-evenly;
-  padding: 0 40px;
 }
 
 .controlButton {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.controlPlayButton {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.controlButton :active {
+  filter: invert(74%) sepia(25%) saturate(6078%) hue-rotate(90deg)
+    brightness(97%) contrast(88%);
+}
+
+.activeButton {
+  filter: invert(74%) sepia(25%) saturate(6078%) hue-rotate(90deg)
+    brightness(97%) contrast(88%);
 }
 
 .inactibeButtonWrapper {

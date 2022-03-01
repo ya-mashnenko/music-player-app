@@ -21,9 +21,7 @@ export const Footer: React.FC<IFooterProps> = ({
       </button>
       <div className={styles.nextSong}>
         <span className="subtitle">Next</span>
-        <ul className={styles.trackWrapper}>
-          <TrackInfo track={track} />
-        </ul>
+        <TrackInfo track={track} />
       </div>
     </footer>
   );

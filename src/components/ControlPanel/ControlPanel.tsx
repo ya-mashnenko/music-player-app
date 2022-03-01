@@ -26,7 +26,9 @@ export const ControlPanel: React.FC<IControlPanelProps> = ({
   return (
     <div className={styles.controlPanel}>
       <button
-        className={styles.controlButton}
+        className={`${styles.controlButton} ${
+          isShuffledPlaylist ? styles.activeButton : null
+        }`}
         onClick={() => handleShufflePlaylist(!isShuffledPlaylist)}
       >
         <img src="shuffle_ico.svg" alt="shuffle" />
@@ -38,7 +40,7 @@ export const ControlPanel: React.FC<IControlPanelProps> = ({
         <img src="previous_ico.svg" alt="previous" />
       </button>
       <button
-        className={styles.controlButton}
+        className={styles.controlPlayButton}
         style={{ width: "250px" }}
         onClick={() => setIsPlayActive(!isPlayActive)}
       >
@@ -57,7 +59,9 @@ export const ControlPanel: React.FC<IControlPanelProps> = ({
         <img src="next_ico.svg" alt="next" />
       </button>
       <button
-        className={styles.controlButton}
+        className={`${styles.controlButton} ${
+          isRepeatedSong ? styles.activeButton : null
+        }`}
         onClick={() => handleRepeat(!isRepeatedSong)}
       >
         <img src="repeat_ico.svg" alt="repeat" />

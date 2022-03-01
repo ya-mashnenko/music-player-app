@@ -32,7 +32,9 @@ export const Header: React.FC<IHeaderProps> = ({
         </div>
       )}
       <button
-        className={styles.controlButton}
+        className={`${styles.controlButton} ${
+          isMenuOpen ? styles.disabledButton : null
+        }`}
         disabled={isMenuOpen}
         onClick={() => handleMenuOpen(PageStateProps.menu)}
       >

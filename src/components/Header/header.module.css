@@ -8,3 +8,8 @@
   display: grid;
   text-align: center;
 }
+
+.disabledButton {
+  filter: grayscale(100%) brightness(10);
+  cursor: default;
+}

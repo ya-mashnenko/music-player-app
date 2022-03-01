@@ -32,7 +32,7 @@ export const MenuPage: React.FC<IMenuPageProps> = ({
           artist={currentSong.artist}
           variant="main"
         />
-        <img src={"more_ico.svg"} alt="more" className={styles.divider} />
+        <div className={styles.divider}> ...</div>
         <MenuButtonSet />
       </div>
       <Footer track={nextSong} handlePlaylistOpen={handlePageChange} />
