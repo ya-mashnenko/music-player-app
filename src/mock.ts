@@ -13,7 +13,7 @@ export const musicDataMock: SongDataProps[] = [
     duration: "292",
     artist: "Kanye West",
     album: "My Beautiful Dark Twisted Fantasy",
-    cover: "unreleased_cover.png",
+    cover: "cover.png",
   },
   {
     song: "Runaway",

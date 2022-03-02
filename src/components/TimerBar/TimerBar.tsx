@@ -24,6 +24,8 @@ export const TimerBar: React.FC<ITimeBarProps> = ({
     return (progress * 100) / duration;
   };
 
+  useEffect(() => setStartTime(0), [currentSong]);
+
   useEffect(() => {
     let timer: number | undefined;
     if (startTime === durationInSeconds) {

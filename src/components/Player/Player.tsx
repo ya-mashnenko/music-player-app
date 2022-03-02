@@ -4,7 +4,8 @@ import { TrackTitle } from "../TrackTitle/TrackTitle";
 import { ControlPanel } from "../ControlPanel/ControlPanel";
 import { TimerBar } from "../TimerBar/TimerBar";
 import styles from "./player.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { nextSong, previousSong } from "../../helpers";
 
 interface IPlayerProps {
   trackList: SongDataProps[];
@@ -26,10 +27,24 @@ export const Player: React.FC<IPlayerProps> = ({
   isRepeatedSong,
 }) => {
   const [isPlayActive, setIsPlayActive] = useState<boolean>(false);
+  const [trackCovers, setTrackCovers] = useState<string[]>([
+    currentSong.cover,
+    nextSong(currentSong, trackList).cover,
+    previousSong(currentSong, trackList).cover,
+  ]);
+
+  useEffect(() => {
+    const slides = [
+      currentSong.cover,
+      nextSong(currentSong, trackList).cover,
+      previousSong(currentSong, trackList).cover,
+    ];
+    setTrackCovers(isRepeatedSong ? [currentSong.cover] : slides);
+  }, [currentSong, trackList]);
 
   return (
     <div className={styles.player}>
-      <DiscSlider />
+      <DiscSlider slides={trackCovers} />
       <TrackTitle
         song={currentSong.song}
         artist={currentSong.artist}
